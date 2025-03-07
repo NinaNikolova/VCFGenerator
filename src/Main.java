@@ -4,7 +4,7 @@ import java.util.Base64;
 
 public class Main {
     public static void main(String[] args) {
-        String imagePath = "photo.jpg"; // Change to your image path
+        String imagePath = "photo.jpg";
         String vcfPath = "contact.vcf";
 
         try {
@@ -23,15 +23,13 @@ public class Main {
                     "PHOTO;ENCODING=b;TYPE=JPEG:" + base64Image + "\n" +
                     "END:VCARD";
 
-
-            // Write to .vcf file
             FileWriter writer = new FileWriter(vcfPath);
             writer.write(vCard);
             writer.close();
 
             System.out.println("vCard generated: " + vcfPath);
         } catch (IOException e) {
-            System.err.println("🔍 Debug Info: " + e.getMessage());
+            System.err.println("Error Info: " + e.getMessage());
         }
     }
 }
